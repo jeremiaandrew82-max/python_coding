@@ -4,6 +4,10 @@ print(arr[2])     # 30
 arr.append(50)
 arr.remove(20)
 
+#Example
+numbers = [34, 12, 9, 56, 21]
+print("Original array:", numbers)
+
 
 #String,Immutable sequence of characters.
 s = "python"
@@ -16,6 +20,15 @@ stack.append(10)
 stack.append(20)
 print(stack.pop())   # 20
 
+#Example
+stack = []
+
+for n in numbers:
+    stack.append(n)
+
+print("Stack pop:", stack.pop())
+
+
 
 #Queue (FIFO),First In, First Out,Use: scheduling, buffering
 from collections import deque
@@ -25,12 +38,31 @@ q.append(10)
 q.append(20)
 print(q.popleft())   # 10
 
+#Example
+from collections import deque
+
+queue = deque(numbers)
+print("Queue dequeue:", queue.popleft())
+
+
 
 #Linked List. Each node points to next node.Types:Singly,Doubly,Circular
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(30)
+
+current = head
+print("Linked List:", end=" ")
+while current:
+    print(current.data, end=" -> ")
+    current = current.next
+print("None")
+      
 
 
 #Dictionary (Hash Map),Key–value pairs,Search: O(1)
@@ -95,6 +127,9 @@ def bubble_sort(arr):
         for j in range(0, len(arr)-i-1):
             if arr[j] > arr[j+1]:
                 arr[j], arr[j+1] = arr[j+1], arr[j]
+bubble_sort(numbers)
+print("Sorted array:", numbers)
+               
 
 
 #Selection Sort
